@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/jdbc
+			http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/jms
+			http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
+			http://cxf.apache.org/jaxws
+			http://cxf.apache.org/schemas/jaxws.xsd
+			http://www.springframework.org/schema/task
+			http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+	<!-- Con este tag registramos los beans que utilizaremos en la aplicacion 
+		id= al nombre con el que identificaremos a este bean.
+		scope= en este atributo	se le indica como queremos que genere este objeto al hacer un getBean(): 
+				prototype: que genere un objeto nuevo cada ves que lo pido
+				singleton: que siempre devuelva el mismo objeto
+				session:genera un objeto por session
+				request:genera un objeto por request
+				(por defecto es singleton)
+		class: es la ruta donde se encuentra la clase-->
+	<bean id="helloWord" scope="prototype" class="com.rolando.component.HelloWord"></bean>
+
+</beans>
