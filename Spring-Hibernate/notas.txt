@@ -1,0 +1,26 @@
+En el archivo applicationContext.xml configuraremos spring
+con este tag le indicamos que paquetes poseen clases con anotaciones de spring para ser 
+escaneadas e incluidas en el applicationContext
+
+	<context:component-scan base-package="com.rolando.entity" />
+
+con esto importamos el xml	
+	<import resource="dataSource.xml" />
+
+con estas lineas configuramos hibernate incluido en Spring 
+
+	<tx:annotation-driven />
+
+		<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+	
+		<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	
+<task:annotation-driven />
+
+En el archivo log4j.xml se configura el logger(con esa configuracion se logueara en la consola) 
+
+En el archivo dataSource.xml se configura la conexion a la base de datos
+
+en el archivo hibernate.xml se configura hibernate y el sessionFactory de Spring
