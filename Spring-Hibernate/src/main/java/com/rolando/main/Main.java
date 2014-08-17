@@ -9,9 +9,10 @@ import com.rolando.service.AutoService;
 import com.rolando.service.PersonaService;
 
 public class Main {
-	
+
 	public static void main(String[] args) {
-	
+
+		@SuppressWarnings("resource")
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 		AutoService autoService = (AutoService) applicationContext.getBean(AutoService.class);

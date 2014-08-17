@@ -7,9 +7,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class EntityRepository<T extends Serializable> {
+public abstract class EntityRepository<T extends Serializable>{
 
 	private Class<?> genericClass;
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -31,14 +32,15 @@ public abstract class EntityRepository<T extends Serializable> {
 		sessionFactory.getCurrentSession().delete(entity);
 	}
 
+	@SuppressWarnings("unchecked")
 	public T get(Long id) {
 		T entity = (T) sessionFactory.getCurrentSession().get(genericClass, id);
 		return entity;
 	}
 
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public Collection<T> list() {
 		return sessionFactory.getCurrentSession().find("from " + genericClass.getCanonicalName());
-
 	}
 
 	public void merge(T entity) {
