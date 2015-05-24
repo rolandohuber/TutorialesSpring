@@ -10,25 +10,24 @@ import com.rolando.service.PersonaService;
 
 public class Main {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
-		@SuppressWarnings("resource")
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 		AutoService autoService = (AutoService) applicationContext.getBean(AutoService.class);
 		PersonaService personaService = (PersonaService) applicationContext.getBean(PersonaService.class);
 
 		Auto auto = (Auto) applicationContext.getBean(Auto.class);
-		auto.setName("Meggane");
-		auto.setPatente("CLF777");
+		auto.setName("Mini");
+		auto.setPatente("XXX111");
 		autoService.save(auto);
 
 		Persona persona = (Persona) applicationContext.getBean(Persona.class);
-		persona.setName("Pepe");
-		persona.setApellido("Mandon");
+		persona.setName("Cosme");
+		persona.setApellido("Fulanito");
 		persona.setAuto(auto);
 
 		personaService.save(persona);
-
 	}
 }

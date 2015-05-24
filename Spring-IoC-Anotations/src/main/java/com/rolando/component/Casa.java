@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Casa {
 	public void getDireccion(){
-		System.out.println("Mexico 1270");
+		System.out.println("Calle Falsa 123");
 	}
 }

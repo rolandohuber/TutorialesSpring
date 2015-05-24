@@ -3,14 +3,15 @@ package com.rolando.persistence;
 import java.io.Serializable;
 import java.util.Collection;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class EntityRepository<T extends Serializable>{
+@SuppressWarnings({ "unchecked" })
+public abstract class EntityRepository<T extends Serializable> {
 
 	private Class<?> genericClass;
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -32,15 +33,13 @@ public abstract class EntityRepository<T extends Serializable>{
 		sessionFactory.getCurrentSession().delete(entity);
 	}
 
-	@SuppressWarnings("unchecked")
 	public T get(Long id) {
 		T entity = (T) sessionFactory.getCurrentSession().get(genericClass, id);
 		return entity;
 	}
 
-	@SuppressWarnings({ "unchecked", "deprecation" })
 	public Collection<T> list() {
-		return sessionFactory.getCurrentSession().find("from " + genericClass.getCanonicalName());
+		return sessionFactory.getCurrentSession().createQuery("from " + genericClass.getCanonicalName()).list();
 	}
 
 	public void merge(T entity) {

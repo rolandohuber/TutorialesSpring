@@ -16,24 +16,13 @@ public class ApplicationContextFactory {
 		applicationContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public static ApplicationContextFactory getInstance() {
-
 		if (instance == null)
 			instance = new ApplicationContextFactory();
-
 		return instance;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public ApplicationContext getApplicationContext() {
-
 		return applicationContext;
 	}
 

@@ -17,7 +17,7 @@ public class Persona {
 	private Casa casa;
 
 	public void getName() {
-		System.out.println("My name is PEPE!!");
+		System.out.println("My name is Cosme Fulanito!!");
 		casa.getDireccion();
 	}
 }

@@ -22,13 +22,13 @@ public class IoCSample {
 		}
 
 		{
-			Persona pepe = (Persona) applicationContext.getBean("persona");
-			pepe.getName();
+			Persona persona = (Persona) applicationContext.getBean("persona");
+			persona.getName();
 		}
 
 		{
-			Persona pepe = (Persona) applicationContext.getBean(Persona.class);
-			pepe.getName();
+			Persona persona = (Persona) applicationContext.getBean(Persona.class);
+			persona.getName();
 		}
 	}
 }
