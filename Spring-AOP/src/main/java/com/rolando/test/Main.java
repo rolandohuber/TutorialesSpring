@@ -14,6 +14,7 @@ public class Main {
 		try {
 			String response = holaMundo.sayHello(" El texto original");
 			System.out.println("Respuesta Final del Metodo :" + response);
+			holaMundo.throwExeption();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
